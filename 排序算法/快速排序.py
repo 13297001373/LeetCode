@@ -1,2 +1,2 @@
-def Quick_Sort(Arr):
-    pass
+a = [1,23,9]
+print(min(a))
