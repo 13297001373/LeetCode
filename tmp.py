@@ -1,4 +1,5 @@
-a = [[1,2,4],[4,4,4]]
-a[1][:] = [0 for i in range(3)]
-print(a)
+a = [1,2,3]
+del a[-1]
+for i in a:
+    print(i)
 
