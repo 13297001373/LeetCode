@@ -1,5 +1,4 @@
 n = int(input())
-arry = []
-while n>0:
-    arry.append(int(input()))
-sorted(arry,)
+Arry = input()
+Arry = Arry.strip().split(' ')
+Arry = list(map(lambda x:int(x),Arry))
