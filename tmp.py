@@ -1,9 +1,4 @@
-a = [None,None,1,2]
-for i in a:
-    if i:
-        if i==1:
-            print('1')
-            break
-    print('a')
-
+a = [[1,2,4],[4,4,4]]
+a[1][:] = [0 for i in range(3)]
+print(a)
 
