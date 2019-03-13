@@ -1,5 +1,2 @@
-a = [1,2,3]
-del a[-1]
-for i in a:
-    print(i)
-
+a,b = 0,0
+print(a,b)
