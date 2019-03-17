@@ -1,5 +1,5 @@
 '''
-异或运算：相同数字异或之后为0，数字和0异或为0
+异或运算：相同数字异或之后为0，数字和0异或为数字
 '''
 class Solution(object):
     def singleNumber(self, nums):

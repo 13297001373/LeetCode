@@ -1,3 +1,10 @@
+'''
+  a b
+0 0 0
+1 x 0
+2 0 x
+3 0 0
+'''
 class Solution(object):
     def singleNumber(self, nums):
         """
