@@ -1,29 +1,33 @@
-import sys
-datas = []
-n = int(sys.stdin.readline().strip())
-for line in range(n):
-    datas.append(sys.stdin.readline().strip())
-result = []
-for data in datas:
-    i = 0
-    data = list(data)
-    while i<len(data):
-        if i+2<len(data):
-            if data[i]==data[i+1]==data[i+2]:
-                data.remove(data[i])
-            else:
-                i+=1
+class Tree:
+    def __init__(self,x):
+        self.left = None
+        self.right = None
+        self.val = x
+def create_tree(x,k):
+    root = Tree(x)
+    if root.val>0 and k>0:
+        if root.val%2==0:
+            k-=1
+            root.left = create_tree(root.val//2,k)
+            k-=1
+            root.right = create_tree(root.val//2,k)
         else:
-            break
-    i = 0
-    while i<len(data):
-        if i+3<len(data):
-            if data[i]==data[i+1] and data[i+2]==data[i+3]:
-                data.remove(data[i+2])
-            else:
-                i+=1
-        else:
-            break
-    result.append(data)
-for res in result:
-    print(''.join(res))
+            k-=1
+            root.left = create_tree(root.val//2+1,k)
+            k-=1
+            root.right = create_tree(root.val//2,k)
+    return root
+def print_root(root):
+    while root!=None:
+        print(root.val)
+        print_root(root.left)
+        print_root(root.right)
+if __name__ == '__main__':
+    root = create_tree(15,4)
+    print_root(root)
+
+
+
+
+
+

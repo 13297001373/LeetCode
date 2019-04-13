@@ -1,3 +1,3 @@
-a = [1,2,5,7,10,4,2]
-a.sort()
+a = [1,2,3]
+a = list(map(lambda x:x-1,a))
 print(a)
