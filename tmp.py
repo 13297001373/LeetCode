@@ -1,3 +1,1 @@
-a = 'ab'
-b = 'abab'
-print(b/a)
+print(3300/9)
