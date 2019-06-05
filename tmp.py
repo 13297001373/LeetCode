@@ -1,1 +1,2 @@
-print(3300/9)
+s = [' ',' ']
+print(int(''.join(s)))
