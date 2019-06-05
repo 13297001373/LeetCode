@@ -13,7 +13,6 @@ class Solution(object):
             i+=1
             j-=1
         return True
-
 def test_fucntion():
     solution = Solution()
     x = 123432
