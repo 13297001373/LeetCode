@@ -5,24 +5,37 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
+        '''https://blog.csdn.net/guoziqing506/article/details/52448539'''
         if len(nums)<3:
             return 0
         nums = sorted(nums) #排序
-        i = 0
-        j = len(nums)-1
-        while i<j:
-            if nums[i]+nums[j]<target:
-                i+=1
-            elif nums[i]+nums[j]>target:
-                j-=1
-            else:
-                break
+        start = 0
+        mid = start+1
+        end = len(nums)-1
+        min_error = 999999
+        while start<end:
+            while mid<end:
+                sums = nums[start] + nums[mid] + nums[end]
+                if abs(target-sums)<min_error:
+                    min_error = abs(target-sums)
+                    best_sum = sums
+                if target>sums:
+                    mid+=1
+                elif target<sums:
+                    end-=1
+                else:
+                    return best_sum
+            start+=1
+            mid = start+1
+            end = len(nums)-1
+        return best_sum
+
 
 
 def test_function():
     solution = Solution()
-    nums = [1,2,4,8,16,32,64,128]
-    target = 82
+    nums = [1,1,1,0]
+    target = -100
     res = solution.threeSumClosest(nums,target)
     print(res)
 

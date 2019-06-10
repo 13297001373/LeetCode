@@ -1,5 +1,6 @@
-a = [2,2,3,2]
-a = sorted(a)
-print(a)
-a.remove(2)
-print(a)
+a = [1,2]
+b = [[1,2],[1]]
+if a in b:
+    print('a')
+else:
+    print('b')
