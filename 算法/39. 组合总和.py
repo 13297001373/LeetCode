@@ -1,5 +1,5 @@
 class Solution(object):
-    def combinationSum(self, candidates, target):
+    def combinationSum1(self, candidates, target):
         """
         :type candidates: List[int]
         :type target: int
@@ -17,9 +17,28 @@ class Solution(object):
         res = []
         backtrack(0,0,[])
         return res
+    def combinationSum(self,candidates,target):
+        '''
+        :param candidates:
+        :param target:
+        :return:
+        '''
+        def backtrack(i,sums,lists):
+            if sums == target:
+                res.append(lists)
+                return
+            for j in range(i,n):
+                if sums+candidates[j]>target:
+                    break
+                backtrack(j,sums+candidates[j],lists+[candidates[j]])
+        candidates = sorted(candidates)
+        n = len(candidates)
+        res = []
+        backtrack(0,0,[])
+        return res
 def test_function():
      solution = Solution()
-     candidates = [2,3,6,7]
+     candidates = [1,6,7]
      target = 7
      res = solution.combinationSum(candidates,target)
      print(res)
