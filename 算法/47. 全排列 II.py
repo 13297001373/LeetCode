@@ -5,16 +5,17 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         def backtrack(first):
-            if first == n and nums[:] not in res:
+            if first == n:
                 res.append(nums[:])
                 return
             for i in range(first,n):
-                if i>first and nums[i]==nums[first]:
+                if i>first and nums[i]==nums[i-1]:
                     continue
                 nums[first],nums[i] = nums[i],nums[first]
                 backtrack(first+1)
                 nums[first],nums[i] = nums[i],nums[first]
         n = len(nums)
+        nums = sorted(nums)
         res = []
         backtrack(0)
         return res
