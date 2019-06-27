@@ -1,2 +1,2 @@
-s = 'babad'
-print(s[::-1])
+s = 'a*'
+print(len(s[3:]))
