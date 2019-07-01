@@ -18,7 +18,7 @@ class Solution(object):
         return res
 def test_function():
     solution = Solution()
-    nums = [1,2]
+    nums = [1,2,3,4,5,6,7]
     res = solution.permute(nums)
     print(res)
 
