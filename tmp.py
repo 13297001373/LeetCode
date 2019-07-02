@@ -1,4 +1,2 @@
-a = [1,4,2,6,3]
-a[3:].reverse()
-
-print(a)
+s = 'abcd'
+print(s[::-1])
