@@ -40,17 +40,33 @@ class Solution(object):
             best = s1 if len(s1)>len(best) else best
         return best
     def longestPalindrome2(self,s):
-        dp  = [[False for _ in range(len(s))] for _ in range(len(s))]
-        try:
-            best = s[0]
-        except Exception:
-            return ''
-        for i in range(len(s)):
-            for j in range(i):
-                if s[i]==s[j] and (dp[j+1][i-1] or i-j<=2):
+        lengh = len(s)
+        dp = [[False if i != j else True for i in range(lengh)] for j in range(lengh)]
+        best = ''
+        for i in range(lengh):
+            for j in range(i + 1):
+                if s[i] == s[j] and (i - j < 2 or dp[j + 1][i - 1]):  # 只有两个字母或者前面的已经是回文
                     dp[j][i] = True
-                    best = s[j:i+1] if len(s[j:i+1])>len(best) else best
+                    best = s[j:i + 1] if i - j + 1 > len(best) else best
         return best
+    def Manacher(self,s):
+        s = '*'.join(s)
+        s = '*' + s + '*'
+        p = [1 for i in s]
+        for i in range(len(s)):
+            left = i - 1
+            right = i + 1
+            count = 0
+            while left > -1 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+                count += 1
+            p[i] += count
+        max_value = max(p)
+        max_index = p.index(max_value)
+        print(p)
+        res = ''.join(s[max_index - max_value + 1:max_index + max_value].split('*'))
+        return res
 
 
 def test_function():
