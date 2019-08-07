@@ -11,4 +11,15 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        def Tracer(root):
+        if not root:
+            return 0
+        left = self.minDepth(root.left)
+        right = self.minDepth(root.right)
+        if not root.left or not root.right:
+            return left+right+1
+        else:
+            return min(left,right)+1
+
+
+
+
